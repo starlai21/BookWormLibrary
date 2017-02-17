@@ -1,5 +1,12 @@
 language: java
 install:
 - mvn install
-jdk: 
+jdk:
 - oraclejdk8
+deploy:
+  provider: heroku
+  api_key:
+    secure: ITq8kzKrUglU2tdC56WewLOWUv5rk1tnNGQp5eASGbIMv1n+797RR1bTlLBD+7zKe3NGoaapLM4K+Tv47G5jICCb18WhV6apBodLq1QO82RTuL+MhQ0gmcDoYwismyr7iZJ05wE80TIYTKXqj5t5W51evLq4CO7UB+0AoWNW9K6Pyk/+BHqJdcIlqYRqy41vKOhXM1OPtEoiFhN1Fiie5sVZgLlz0WEffSCdiLea4TZr2sKBW9toIVT1eQm8u6UzMAiciEvIEu+hD1jA33+7l7wgcRrnJHOdamHywPiMrSliA/u6+FvOi39z8FUqlcw5JZKxJ08ZUZxXBNqiQcJbndxcv3SKUyPWsFMD6KPJmdzSKVzqfxpAezUura077W5FSTNBESqCXwl+TFtH5eSafa2PTv9KkS540bFvnlHd1pJjXMsKVer5D9uMtyrI20W0IUglIy7hvmasIlciVSZv0zg6YL1cfwc05h6+odD0wsS01gRw3iIFeNpcLP2rvAbyBFML5zVoQwzB/GEheI9FtQxQkESEjEMiRgQTPjMophIWN5GJj+xu4OB0wvckVnFEj98MJBmYVaL4c6wRQe7Y5FnP0eTtTmncgmHFWWrHiWZxwUAYrRpJVkNd3AmRyKSZZzVOYZiKtHMO+PKW2XLbmnicYxlpaIsnP4beP7AoVLE=
+  app: 'yes'
+  on:
+    repo: jackson211/LibraryApp
