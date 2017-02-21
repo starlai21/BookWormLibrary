@@ -1,4 +1,4 @@
-package com.example.Main;
+package com.bookworm.view;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -23,7 +23,7 @@ public class OtherSecurePage extends VerticalLayout implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				Page.getCurrent().setUriFragment("!"+SecurePage.NAME);
+				Page.getCurrent().setUriFragment("!"+ProfilePage.NAME);
 			}
 		});
 		otherSecure = new Label("Other Secure Page ...");

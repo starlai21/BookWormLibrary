@@ -1,7 +1,10 @@
-package com.example.Main;
+package com.bookworm.main;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.bookworm.view.MainView;
+import com.bookworm.view.OtherSecurePage;
+import com.bookworm.view.ProfilePage;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -15,15 +18,13 @@ import com.vaadin.server.Page.UriFragmentChangedListener;
 
 
 /**
- * This UI is the application entry point. A UI may either represent a browser window 
- * (or tab) or some part of a html page where a Vaadin application is embedded.
- * <p>
- * The UI is initialized using {@link #init(VaadinRequest)}. This method is intended to be 
- * overridden to add component to the user interface and initialize non-component functionality.
+ * The main UI of the Library App. Navigator can set views for different content that we 
+ * implemented in separated class
+ * 
  */
 @Theme("mytheme")
 @StyleSheet({"https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC"})
-public class MyUI extends UI {
+public class LibraryUI extends UI {
 	
 	public static Authentication AUTH;
 	
@@ -43,15 +44,21 @@ public class MyUI extends UI {
 		router("");
     }
 	
+	/**
+	 * Router provides the navigation function be able to change 
+	 * current view by passing URI fragment
+	 * 
+	 * @param route	URI String
+	 */
 	private void router(String route){
 		//Notification.show(route);
 		if(getSession().getAttribute("user") != null){
-			getNavigator().addView(SecurePage.NAME, SecurePage.class);
+			getNavigator().addView(ProfilePage.NAME, ProfilePage.class);
 			getNavigator().addView(OtherSecurePage.NAME, OtherSecurePage.class);
 			if(route.equals("!OtherSecure")){
 				getNavigator().navigateTo(OtherSecurePage.NAME);
 			}else{
-				getNavigator().navigateTo(SecurePage.NAME);
+				getNavigator().navigateTo(ProfilePage.NAME);
 			}
 		}else{
 			getNavigator().navigateTo(MainView.NAME);
@@ -60,7 +67,7 @@ public class MyUI extends UI {
 	
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet {
+    @VaadinServletConfiguration(ui = LibraryUI.class, productionMode = false)
+    public static class LibraryUIServlet extends VaadinServlet {
     }
 }

@@ -1,8 +1,9 @@
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Main/MainView.java
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Main/MyUI.java
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Main/OtherSecurePage.java
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Book/BookService.java
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Main/Authentication.java
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Main/SecurePage.java
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Book/Book.java
-/Users/jackson/OneDrive/school/3130SoftwareEng/Project/LibraryApp/src/main/java/com/example/Main/LoginPage.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/book/Book.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/book/BookService.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/view/MainView.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/main/Authentication.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/view/OtherSecurePage.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/main/LibraryUI.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/view/ProfileMenu.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/view/ProfilePage.java
+/Users/jackson/OneDrive/school/3130SoftwareEng/Project/bookworm/src/main/java/com/bookworm/view/LoginPage.java

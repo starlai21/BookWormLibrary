@@ -1,4 +1,4 @@
-package com.example.Book;
+package com.bookworm.book;
 
 public class Book {
 	

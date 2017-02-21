@@ -1,5 +1,6 @@
-package com.example.Main;
+package com.bookworm.view;
 
+import com.bookworm.main.Authentication;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
