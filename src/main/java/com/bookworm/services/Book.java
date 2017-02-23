@@ -1,4 +1,4 @@
-package com.bookworm.book;
+package com.bookworm.services;
 
 public class Book {
 	

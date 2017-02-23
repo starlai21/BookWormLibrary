@@ -1,4 +1,4 @@
-package com.bookworm.view;
+package com.bookworm.ui;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -20,25 +20,24 @@ import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.VerticalSplitPanel;
 
-public class ProfilePage extends VerticalLayout implements View{
+public class ProfileView extends VerticalLayout implements View{
 	private static final long serialVersionUID = 1L;
-	private VerticalLayout layout;
 	private Label secure;
 	private Label currentUser;
 	private Button otherSecure;
-	private Label header;
+	private Button header;
 	private Button login;
 	private TextField searchText;
 	private Button searchBtn;
 
 	public static final String NAME = "Profile";
 
-	public ProfilePage() {
-		//configureComponents();
-		setupLayout();
-		buildHeader();
-		buildSearch();
-		buildSide();
+	public ProfileView() {
+		setMargin(true);
+		addStyleName("background");
+		addHeader();
+		addSearch();
+		addSide();
 	}
 	
 	/*
@@ -75,17 +74,22 @@ public class ProfilePage extends VerticalLayout implements View{
 	}
 	*/
 	
-	private void setupLayout() {
-		layout = new VerticalLayout();
-		layout.setMargin(true);
-		layout.addStyleName("background");
-		addComponent(layout);
-	}
-	
-	private void buildHeader() {
-		header = new Label("Bookworms Library");
-		header.addStyleName(ValoTheme.LABEL_H1);
-		header.addStyleName("header");
+	private void addHeader() {
+		header = new Button("Bookworms Library");
+		header.addStyleName(ValoTheme.BUTTON_BORDERLESS);
+		header.addStyleName(ValoTheme.BUTTON_LARGE);
+		header.addStyleName("white");
+		header.addClickListener(new Button.ClickListener() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				getUI().getNavigator().removeView(ProfileView.NAME);
+				getUI().getNavigator().removeView(OtherSecurePage.NAME);
+				VaadinSession.getCurrent().setAttribute("user", null);
+				Page.getCurrent().setUriFragment("");
+			}
+		});
 		
 		login = new Button();
 		login.addStyleName(ValoTheme.BUTTON_BORDERLESS);
@@ -98,10 +102,10 @@ public class ProfilePage extends VerticalLayout implements View{
 		headerLayout.setComponentAlignment(login, Alignment.MIDDLE_RIGHT);
 		headerLayout.setComponentAlignment(header, Alignment.MIDDLE_LEFT);
 		
-		layout.addComponent(headerLayout);
+		addComponent(headerLayout);
 	}
 	
-	private void buildSearch() {
+	private void addSearch() {
 		searchText = new TextField();
 		searchText.setWidth("60%");
 		searchText.setInputPrompt("Search by author, title or ISBN");
@@ -122,10 +126,10 @@ public class ProfilePage extends VerticalLayout implements View{
 		searchBar.setComponentAlignment(searchText, Alignment.MIDDLE_RIGHT);
 		searchBar.setComponentAlignment(searchBtn, Alignment.MIDDLE_LEFT);
 		
-		layout.addComponent(searchBar);
+		addComponent(searchBar);
 	}
 	
-	private void buildSide(){
+	private void addSide(){
 		VerticalLayout sideBar = new VerticalLayout();
 		sideBar.setMargin(true);
 		sideBar.setWidth("20%");
@@ -143,7 +147,7 @@ public class ProfilePage extends VerticalLayout implements View{
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				getUI().getNavigator().removeView(ProfilePage.NAME);
+				getUI().getNavigator().removeView(ProfileView.NAME);
 				getUI().getNavigator().removeView(OtherSecurePage.NAME);
 				VaadinSession.getCurrent().setAttribute("user", null);
 				Page.getCurrent().setUriFragment(MainView.NAME);
@@ -151,7 +155,7 @@ public class ProfilePage extends VerticalLayout implements View{
 		});
 		sideBar.addComponent(logout);
 		
-		layout.addComponent(sideBar);
+		addComponent(sideBar);
 	}
 
 

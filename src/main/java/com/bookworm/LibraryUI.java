@@ -1,10 +1,11 @@
-package com.bookworm.main;
+package com.bookworm;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.bookworm.view.MainView;
-import com.bookworm.view.OtherSecurePage;
-import com.bookworm.view.ProfilePage;
+import com.bookworm.services.Authentication;
+import com.bookworm.ui.MainView;
+import com.bookworm.ui.OtherSecurePage;
+import com.bookworm.ui.ProfileView;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -53,12 +54,12 @@ public class LibraryUI extends UI {
 	private void router(String route){
 		//Notification.show(route);
 		if(getSession().getAttribute("user") != null){
-			getNavigator().addView(ProfilePage.NAME, ProfilePage.class);
+			getNavigator().addView(ProfileView.NAME, ProfileView.class);
 			getNavigator().addView(OtherSecurePage.NAME, OtherSecurePage.class);
 			if(route.equals("!OtherSecure")){
 				getNavigator().navigateTo(OtherSecurePage.NAME);
 			}else{
-				getNavigator().navigateTo(ProfilePage.NAME);
+				getNavigator().navigateTo(ProfileView.NAME);
 			}
 		}else{
 			getNavigator().navigateTo(MainView.NAME);

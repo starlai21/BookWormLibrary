@@ -1,4 +1,4 @@
-package com.bookworm.main;
+package com.bookworm.services;
 
 public class Authentication {
 	
